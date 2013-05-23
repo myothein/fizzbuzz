@@ -3,7 +3,7 @@ require_once("data.php");
 
 $ArrayURL = split('/', $_SERVER["REQUEST_URI"]); 
 $id = $ArrayURL[2];
-$id = 1;
+
 $data = new propertyData();
 
 if (is_object($data) == true) $status = '200 OK';
