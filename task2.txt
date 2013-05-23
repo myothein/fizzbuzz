@@ -1,1 +1,123 @@
-task2
+1. 
+File   : data.sql
+Line No : 18
+Error 	: HDB table creation
+Correction : change "InnoDB" to "MyISAM"
+
+2.
+File 	: data.sql
+Line No : 21
+Error 	: Condo table creation
+Correction : change "ID BIGINT AUTO_INCREMENT," to "ID BIGINT AUTO_INCREMENT PRIMARY KEY,"
+
+3.
+File 	: data.sql
+Line No : 26
+Error 	: Condo table creation
+Correction : change "InnoDB" to "MyISAM"
+
+4. 
+File 	: getinfo.php
+Line No : 4
+Error 	: parse error 
+Correction : remove ")"
+
+5. 
+File 	: getinfo.php
+Line No : 6
+Error 	: Class 'dataObj' not found 
+Correction : change "dataObj" to "baseObj"
+
+6. 
+File 	: getinfo.php
+Line No : 8
+Error 	: Fatal error: Can't use function return value
+Correction : change "is_object($data) = true" to "is_object($data) == true"
+
+7. 
+File 	: getinfo.php
+Line No : 22
+Error 	: Fatal error: Can't use function return value
+Correction : change "is_object($data) = true" to "is_object($data) == true"
+
+8.
+File 	: test.html
+Line No : 7
+Error 	: 
+Correction : change "<!--// Get the data using ajax //-->" to "<!--//Get the data using ajax//-->"
+
+9.
+File 	: test.html
+Line No : 10
+Error 	: file not found
+Correction : change "/getinfo/111" to "/getinfo.php/111"
+
+10.
+File 	: getinfo.php
+Line No : 4
+Error 	: parse error
+Correction : change "$ArrayURL = split('/', $_SERVER[REQUEST_URI]));" to "$ArrayURL = split('/', $_SERVER["REQUEST_URI"]));"
+
+11.
+File 	: getinfo.php
+Line No : 8
+Error 	: Can't use function return value 
+Correction : change "is_object($data) = true" to "is_object($data) == true"
+
+
+12.
+File   : getinfo.php
+Line No : 8
+Error 	: Class 'dataObj' not found 
+Correction : change "dataObj" to "baseObj"
+
+13.
+File 	: getinfo.php
+Line No : 9
+Error 	: 
+Correction : change "'HTTP/1.1 $status'" to "'HTTP/1.1 '.$status;"
+
+14.
+File 	: getinfo.php
+Line No : 9
+Error 	: fetch_assoc() on a non-object 
+Correction : add new line
+			$data->table = "Property";
+
+15.
+File 	: data.php
+Line No : 40
+Error 	: 
+Correction : change "return $Type" to "return $Title"
+
+16.
+File 	: data.php
+Line No : 4, 39, 50, 55
+Error 	: need to overwrite variable
+Correction : change "private $table" to "public $table"
+
+17.
+File 	: data.php
+Line No : 16
+Error 	: want to return field value
+Correction :change 
+				return $this->mysql->query("SELECT $field FROM $table WHERE ID = $id");
+			to
+				$res = $this->mysql->query("SELECT $field FROM ".$this->table." WHERE ID = $id");
+				$row = $res->fetch_assoc();
+				return $row[$field];
+				
+18.
+File 	: data.php
+Line No : 16
+Error 	: Fatal error
+Correction :change 
+				return $this->mysql->query("SELECT $field FROM $table WHERE ID = $id");				
+			to
+				$res = $this->mysql->query("SELECT * FROM ".$this->table." WHERE ID = $id");
+
+19.
+File 	: data.php
+Line No : 4, 39, 50, 55
+Error 	: need to overwrite variable
+Correction : change "private $table" to "public $table"
