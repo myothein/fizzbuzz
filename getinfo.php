@@ -2,7 +2,7 @@
 require_once("data.php");
 
 $ArrayURL = split('/', $_SERVER["REQUEST_URI"]); 
-$id = $ArrayURL[1];
+$id = $ArrayURL[2];
 
 $data = new baseObj();
 // set table name
