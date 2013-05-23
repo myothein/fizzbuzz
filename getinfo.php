@@ -3,10 +3,9 @@ require_once("data.php");
 
 $ArrayURL = split('/', $_SERVER["REQUEST_URI"]); 
 $id = $ArrayURL[2];
+$id = 1;
+$data = new propertyData();
 
-$data = new baseObj();
-// set table name
-$data->table = "Property";
 if (is_object($data) == true) $status = '200 OK';
 $status_header = 'HTTP/1.1 '.$status;
 
