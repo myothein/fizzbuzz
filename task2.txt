@@ -1,5 +1,5 @@
 1. 
-File   : data.sql
+File 	: data.sql
 Line No : 18
 Error 	: HDB table creation
 Correction : change "InnoDB" to "MyISAM"
@@ -20,83 +20,88 @@ Correction : change "InnoDB" to "MyISAM"
 File 	: getinfo.php
 Line No : 4
 Error 	: parse error 
-Correction : remove ")"
+Correction : remove one close bracket ")"
 
 5. 
 File 	: getinfo.php
-Line No : 6
-Error 	: Class 'dataObj' not found 
-Correction : change "dataObj" to "baseObj"
+Line No : 5
+Error 	: array index to retrieve the id.
+Correction : change "$ArrayURL[1]" to "$ArrayURL[2]"
 
 6. 
+File 	: getinfo.php
+Line No : 6
+Error 	: Class 'dataObj' not found 
+Correction : change "dataObj()" to "propertyData()" or "hdbData()" or "condoData()"
+
+7. 
 File 	: getinfo.php
 Line No : 8
 Error 	: Fatal error: Can't use function return value
 Correction : change "is_object($data) = true" to "is_object($data) == true"
 
-7. 
+8. 
 File 	: getinfo.php
-Line No : 22
-Error 	: Fatal error: Can't use function return value
-Correction : change "is_object($data) = true" to "is_object($data) == true"
+Line No : 10
+Error 	: update header status
+Correction : change 'HTTP/1.1 $status' to 'HTTP/1.1 '.$status
 
-8.
+9.
 File 	: test.html
 Line No : 7
 Error 	: 
 Correction : change "<!--// Get the data using ajax //-->" to "<!--//Get the data using ajax//-->"
 
-9.
+10.
 File 	: test.html
 Line No : 10
 Error 	: file not found
 Correction : change "/getinfo/111" to "/getinfo.php/111"
 
-10.
+11.
 File 	: getinfo.php
 Line No : 4
 Error 	: parse error
 Correction : change "$ArrayURL = split('/', $_SERVER[REQUEST_URI]));" to "$ArrayURL = split('/', $_SERVER["REQUEST_URI"]));"
 
-11.
+12.
 File 	: getinfo.php
 Line No : 8
 Error 	: Can't use function return value 
 Correction : change "is_object($data) = true" to "is_object($data) == true"
 
-
-12.
-File   : getinfo.php
+13.
+File 	: getinfo.php
 Line No : 8
 Error 	: Class 'dataObj' not found 
 Correction : change "dataObj" to "baseObj"
 
-13.
+14.
 File 	: getinfo.php
 Line No : 9
 Error 	: 
 Correction : change "'HTTP/1.1 $status'" to "'HTTP/1.1 '.$status;"
 
-14.
+15.
 File 	: getinfo.php
 Line No : 9
 Error 	: fetch_assoc() on a non-object 
 Correction : add new line
 			$data->table = "Property";
 
-15.
+16.
 File 	: data.php
 Line No : 40
 Error 	: 
 Correction : change "return $Type" to "return $Title"
 
-16.
+17.
 File 	: data.php
 Line No : 4, 39, 50, 55
 Error 	: need to overwrite variable
 Correction : change "private $table" to "public $table"
 
-17.
+18.
 File 	: data.php
 Line No : 16
 Error 	: want to return field value
@@ -107,17 +112,17 @@ Correction :change
 				$row = $res->fetch_assoc();
 				return $row[$field];
 				
-18.
+19.
 File 	: data.php
-Line No : 16
+Line No : 23
 Error 	: Fatal error
 Correction :change 
 				return $this->mysql->query("SELECT $field FROM $table WHERE ID = $id");				
 			to
 				$res = $this->mysql->query("SELECT * FROM ".$this->table." WHERE ID = $id");
 
-19.
+20.
 File 	: data.php
 Line No : 4, 39, 50, 55
 Error 	: need to overwrite variable
-Correction : change "private $table" to "public $table"
+Correction : change "private $table" to "protected $table"
