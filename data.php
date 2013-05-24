@@ -1,4 +1,5 @@
 <?php
+
 class baseObj {
     public $mysql = null;
     protected $table = null;
