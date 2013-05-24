@@ -42,7 +42,7 @@ Correction : change "is_object($data) = true" to "is_object($data) == true"
 
 8. 
 File 	: getinfo.php
-Line No : 10
+Line No : 9
 Error 	: update header status
 Correction : change 'HTTP/1.1 $status' to 'HTTP/1.1 '.$status
 
@@ -59,51 +59,20 @@ Error 	: file not found
 Correction : change "/getinfo/111" to "/getinfo.php/111"
 
 11.
-File 	: getinfo.php
-Line No : 4
-Error 	: parse error
-Correction : change "$ArrayURL = split('/', $_SERVER[REQUEST_URI]));" to "$ArrayURL = split('/', $_SERVER["REQUEST_URI"]));"
-
-12.
-File 	: getinfo.php
-Line No : 8
-Error 	: Can't use function return value 
-Correction : change "is_object($data) = true" to "is_object($data) == true"
-
-13.
-File 	: getinfo.php
-Line No : 8
-Error 	: Class 'dataObj' not found 
-Correction : change "dataObj" to "baseObj"
-
-14.
-File 	: getinfo.php
-Line No : 9
-Error 	: 
-Correction : change "'HTTP/1.1 $status'" to "'HTTP/1.1 '.$status;"
-
-15.
-File 	: getinfo.php
-Line No : 9
-Error 	: fetch_assoc() on a non-object 
-Correction : add new line
-			$data->table = "Property";
-
-16.
 File 	: data.php
-Line No : 40
-Error 	: 
+Line No : 41
+Error 	: incorrect return value
 Correction : change "return $Type" to "return $Title"
 
-17.
+12.
 File 	: data.php
-Line No : 4, 39, 50, 55
-Error 	: need to overwrite variable
-Correction : change "private $table" to "public $table"
+Line No : 5, 38, 49, 54
+Error 	: update the access modifier 
+Correction : change "private $table" to "protected $table"
 
-18.
+13.
 File 	: data.php
-Line No : 16
+Line No : 17
 Error 	: want to return field value
 Correction :change 
 				return $this->mysql->query("SELECT $field FROM $table WHERE ID = $id");
@@ -112,17 +81,32 @@ Correction :change
 				$row = $res->fetch_assoc();
 				return $row[$field];
 				
-19.
+14.
 File 	: data.php
-Line No : 23
+Line No : 22
 Error 	: Fatal error
 Correction :change 
 				return $this->mysql->query("SELECT $field FROM $table WHERE ID = $id");				
 			to
 				$res = $this->mysql->query("SELECT * FROM ".$this->table." WHERE ID = $id");
 
-20.
+15.
 File 	: data.php
 Line No : 4, 39, 50, 55
 Error 	: need to overwrite variable
 Correction : change "private $table" to "protected $table"
+
+16.
+File 	: getinfo.php
+Line No : 4
+Sugession : change "$_SERVER[REQUEST_URI]"  to "$_SERVER["REQUEST_URI"]"
+
+17.
+File 	: test.html
+Line No : 18
+Sugession : move "</BODY>"  near to "</BODY></HTML>"
+
+18.
+File 	: test.html
+Line No : 19,20
+Sugession : remove "<DIV ID="fb-root"></DIV><SCRIPT></SCRIPT>"
