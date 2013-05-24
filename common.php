@@ -1,56 +1,58 @@
 <?php
-// Task 1-1
-function FizzBuzz($start, $end)
+class Number
 {
-	$output = "";
-	$numbers = range($start, $end);
-	foreach($numbers as $number) {
-		if( $number % 3 == 0 && $number % 5 == 0 ) {
-			$output .= 'FizzBuzz';
-		} elseif( $number % 3 == 0 ) {
-			$output .= 'Fizz';			
-		} elseif( $number % 5 == 0 ) {
-			$output .= 'Buzz';
-		} else {
-			$output .= $number;
-		}
-		$output .= " ";
+	private $output = "";
+	private $isFizz = false;
+	private $isBuzz = false;
+	
+	public function getFizzBuzz($from, $to)
+	{
+		$this->output = "";
+		for($i = $from; $i <= $to; $i++)
+		{
+			if( $i % 3 == 0 && $i % 5 == 0 ) {
+				$this->output .= 'FizzBuzz';
+			} elseif( $i % 3 == 0 ) {
+				$this->output .= 'Fizz';			
+			} elseif( $i % 5 == 0 ) {
+				$this->output .= 'Buzz';
+			} else {
+				$this->output .= $i;
+			}
+			$this->output .= " ";
+		}		
+		return $this->output;
 	}
-	return $output;
+	
+	public function getFizzBuzzBazz($from, $to)
+	{
+		$this->output = "";
+		for($i = $from; $i <= $to; $i++)
+		{
+			if( $i % 3 == 0 && $i % 5 == 0 ) {
+				$this->output .= 'FizzBuzz';
+				$this->isFizz = false;
+				$this->isBuzz = false;
+			} elseif( $i % 3 == 0 ) {
+				$this->output .= 'Fizz';	
+				$this->isFizz = true;
+			} elseif( $i % 5 == 0 ) {
+				$this->output .= 'Buzz';
+				$this->isBuzz = true;
+			} else {
+				if ($this->isFizz && $this->isBuzz) {
+					$this->output .= 'Bazz';
+				}
+				else {
+					$this->output .= $i;
+				}
+				$this->isFizz = false;
+				$this->isBuzz = false;				
+			}
+			$this->output .= " ";
+		}		
+		return $this->output;
+	}
 }
 
-// Task 1-2
-function FizzBuzzBazz($start, $end)
-{
-	$output = "";
-	$numbers = range($start, $end);
-	$isFizz = false;
-	$isBuzz = false;
-	
-	foreach($numbers as $number) {
-		if( $number % 3 == 0 && $number % 5 == 0 ) {
-			$output .= 'FizzBuzz';
-			$isFizz = false;
-			$isBuzz = false;
-		} elseif( $number % 3 == 0 ) {
-			$output .= 'Fizz';
-			$isFizz = true;
-		} elseif( $number % 5 == 0 ) {
-			$output .= 'Buzz';
-			$isBuzz = true;
-		} else {
-			// add rule
-			if ($isFizz && $isBuzz) {
-				$output .= 'Bazz';
-			}
-			else {
-				$output .= $number;
-			}
-			$isFizz = false;
-			$isBuzz = false;			
-		}
-		$output .= " ";
-	}
-	return $output;
-}
 ?>
