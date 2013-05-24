@@ -1,11 +1,11 @@
 <?php
 class baseObj {
     public $mysql = null;
-    public $table = null;
+    protected $table = null;
 
     public function __construct ()
     {
-        $this->mysql = new mysqli("localhost", "root", "", "prototype");
+        $this->mysql = new mysqli("localhost", "user", "password", "database");
         if ($this->mysql->connect_errno) {
             echo "Failed to connect to MySQL: (" . $this->mysql->connect_errno . ") " . $this->mysql->connect_error;
         }
@@ -14,7 +14,7 @@ class baseObj {
     public function get($id, $field)
     {
         $res = $this->mysql->query("SELECT $field FROM ".$this->table." WHERE ID = $id");
-  	$row = $res->fetch_assoc();
+		$row = $res->fetch_assoc();
 		return $row[$field];
     }
 
@@ -36,7 +36,7 @@ class propertyData extends baseObj {
     protected $hdbblock = null;
     private $swimmingPool = null;
 
-    public $table = 'Property';
+    protected $table = 'Property';
 
     public function getType ($ID) { $Type = $this->get( $ID, 'Type'); return $Type; }
     public function getTitle ($ID) { $Title = $this->get( $ID, 'Title') ; return $Title;}
@@ -47,12 +47,12 @@ class propertyData extends baseObj {
 }
 
 class hdbData extends propertyData {
-    public $table = 'HDB';
+    protected  $table = 'HDB';
     public function getHDBBlock ($ID) { $this->hdbblock = $this->get($ID, 'HDBBlock'); return $this->hdbblock; }
 }
 
 class condoData extends propertyData {	
-    public $table = 'ConDO';
+    protected  $table = 'ConDO';
     public function gotSwimmingPool ($ID)
     {
         return $this->get($ID, 'SwimmingPool');
