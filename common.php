@@ -2,18 +2,19 @@
 // Task 1-1
 function FizzBuzz($start, $end)
 {
-  $output = "";
+	$output = "";
 	$numbers = range($start, $end);
 	foreach($numbers as $number) {
 		if( $number % 3 == 0 && $number % 5 == 0 ) {
-			$output .= 'FizzBuzz ';
-		} elseif( $number % 5 == 0 ) {
-			$output .= 'Buzz ';
+			$output .= 'FizzBuzz';
 		} elseif( $number % 3 == 0 ) {
-			$output .= 'Fizz ';
+			$output .= 'Fizz';			
+		} elseif( $number % 5 == 0 ) {
+			$output .= 'Buzz';
 		} else {
-			$output .= $number." ";
+			$output .= $number;
 		}
+		$output .= " ";
 	}
 	return $output;
 }
@@ -23,23 +24,32 @@ function FizzBuzzBazz($start, $end)
 {
 	$output = "";
 	$numbers = range($start, $end);
+	$isFizz = false;
+	$isBuzz = false;
+	
 	foreach($numbers as $number) {
 		if( $number % 3 == 0 && $number % 5 == 0 ) {
-			$output .= 'FizzBuzz ';
-		} elseif( $number % 5 == 0 ) {
-			$output .= 'Buzz ';
+			$output .= 'FizzBuzz';
+			$isFizz = false;
+			$isBuzz = false;
 		} elseif( $number % 3 == 0 ) {
-			$output .= 'Fizz ';
-		}
-		// add rules
-		elseif (((($number-2) % 3) == 0) && ((($number-1) % 5) == 0)){
-			$output .= 'Bazz ';
-		}
-		elseif (((($number-2) % 5) == 0) && ((($number-1) % 3) == 0)){
-			$output .= 'Bazz ';
+			$output .= 'Fizz';
+			$isFizz = true;
+		} elseif( $number % 5 == 0 ) {
+			$output .= 'Buzz';
+			$isBuzz = true;
 		} else {
-			$output .= $number." ";
+			// add rule
+			if ($isFizz && $isBuzz) {
+				$output .= 'Bazz';
+			}
+			else {
+				$output .= $number;
+			}
+			$isFizz = false;
+			$isBuzz = false;			
 		}
+		$output .= " ";
 	}
 	return $output;
 }
